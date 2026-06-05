@@ -1,0 +1,1067 @@
+/* ============================================ */
+/* NAIJAPRICEWATCH - STYLESHEET (style.css) */
+/* ============================================ */
+/* 
+   Color Palette (Nigerian Heritage):
+   - Deep Green: #1a4d2e (primary, represents agriculture/markets)
+   - Warm Accent: #d4a574 (gold/secondary, represents prosperity)
+   - Clean White: #ffffff (background)
+   - Light Gray: #f5f5f5 (subtle backgrounds)
+   - Dark Text: #333333 (readability)
+   - Border Gray: #e0e0e0 (subtle dividers)
+*/
+
+/* ============================================ */
+/* 1. RESET AND GLOBAL STYLES */
+/* ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+/* ============================================ */
+/* 2. NAVIGATION BAR STYLES */
+/* ============================================ */
+
+.navbar {
+    background-color: #1a4d2e; /* Deep green background */
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.logo-text {
+    color: #d4a574; /* Warm accent for brand name */
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-item {
+    /* Flex container for menu items */
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: #d4a574; /* Warm accent on hover */
+    border-bottom: 2px solid #d4a574;
+}
+
+/* ============================================ */
+/* 3. HERO SECTION STYLES */
+/* ============================================ */
+
+.hero {
+    background: linear-gradient(135deg, #1a4d2e 0%, #2d6a47 100%);
+    color: #ffffff;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    line-height: 1.8;
+}
+
+.cta-button {
+    background-color: #d4a574; /* Warm accent background */
+    color: #1a4d2e; /* Deep green text */
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+}
+
+.cta-button:hover {
+    background-color: #f0c89c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+}
+
+/* ============================================ */
+/* 4. MAIN CONTAINER AND LAYOUT */
+/* ============================================ */
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+/* Responsive grid for larger screens */
+@media (min-width: 1024px) {
+    .main-container {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* ============================================ */
+/* 5. DASHBOARD SECTION STYLES */
+/* ============================================ */
+
+.dashboard-section {
+    grid-column: 1;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #1a4d2e;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    color: #666666;
+    font-size: 1rem;
+}
+
+/* ============================================ */
+/* 6. PRICE TABLE STYLES (FLEXBOX/GRID) */
+/* ============================================ */
+
+.table-wrapper {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+/* Table header row styling */
+.table-header-row {
+    background-color: #1a4d2e;
+    color: #ffffff;
+}
+
+.table-header {
+    padding: 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #d4a574;
+}
+
+/* Table body rows */
+.price-table tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+.price-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Table cells styling */
+.price-table td {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+}
+
+/* Alternating row colors for better readability */
+.price-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.price-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Responsive table: Stack on smaller screens */
+@media (max-width: 768px) {
+    .table-wrapper {
+        padding: 1rem;
+    }
+
+    .table-header,
+    .price-table td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================ */
+/* 7. BUDGET PLANNER SIDEBAR STYLES */
+/* ============================================ */
+
+.budget-section {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .budget-section {
+        grid-column: 2;
+        grid-row: 1;
+        display: block;
+    }
+}
+
+.budget-card {
+    background-color: #ffffff;
+    border: 2px solid #1a4d2e;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 100%;
+    box-shadow: 0 4px 16px rgba(26, 77, 46, 0.1);
+}
+
+.budget-title {
+    font-size: 1.5rem;
+    color: #1a4d2e;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.budget-subtitle {
+    color: #666666;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* ============================================ */
+/* 8. FORM STYLES */
+/* ============================================ */
+
+.budget-form {
+    /* Flex column for vertical stacking */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #1a4d2e;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-helper {
+    font-size: 0.85rem;
+    color: #999999;
+    margin-top: 0.25rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #d4a574;
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+}
+
+/* ============================================ */
+/* 9. ITEMS GRID (CHECKBOXES AND QUANTITIES) */
+/* ============================================ */
+
+.items-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive items grid for larger screens */
+@media (min-width: 768px) {
+    .items-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+.item-row:hover {
+    background-color: #f0f0f0;
+}
+
+.item-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #1a4d2e;
+}
+
+.item-label {
+    flex: 1;
+    cursor: pointer;
+    font-weight: 500;
+    color: #333333;
+}
+
+.item-price {
+    color: #d4a574;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.item-quantity {
+    width: 70px;
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.item-quantity:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+/* ============================================ */
+/* 10. TOTAL DISPLAY AND BUDGET STATUS */
+/* ============================================ */
+
+.total-display {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-left: 4px solid #d4a574;
+}
+
+.total-label {
+    font-weight: 600;
+    color: #333333;
+}
+
+.total-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a4d2e;
+}
+
+/* Budget status message container */
+.budget-status {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.status-message {
+    margin: 0;
+}
+
+/* Status: Within budget (safe) - Green */
+.status-safe {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #81c784;
+}
+
+/* Status: Exceeds budget (warning) - Red */
+.status-exceeded {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef5350;
+}
+
+/* ============================================ */
+/* 11. BUTTON STYLES */
+/* ============================================ */
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #1a4d2e;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2d6a47;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 77, 46, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+/* ============================================ */
+/* 12. FOOTER STYLES */
+/* ============================================ */
+
+.footer {
+    background-color: #1a4d2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.footer p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* ============================================ */
+/* 12B. ABOUT SECTION STYLES */
+/* ============================================ */
+
+.about-section {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    padding: 4rem 2rem;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* About section header */
+.about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    color: #1a4d2e;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.about-lead {
+    font-size: 1.1rem;
+    color: #666666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* About grid layout */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Responsive grid for larger screens */
+@media (min-width: 768px) {
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .about-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Individual about cards */
+.about-card {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.about-card:hover {
+    border-color: #d4a574;
+    box-shadow: 0 4px 16px rgba(212, 165, 116, 0.2);
+    transform: translateY(-4px);
+}
+
+/* About card icon */
+.about-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* About card title */
+.about-card-title {
+    font-size: 1.3rem;
+    color: #1a4d2e;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* About card text */
+.about-card-text {
+    color: #666666;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* About list styling */
+.about-list {
+    list-style: none;
+    padding: 0;
+    color: #666666;
+}
+
+.about-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.about-list li:last-child {
+    border-bottom: none;
+}
+
+.about-list li:before {
+    content: '✓ ';
+    color: #1a4d2e;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* About CTA button */
+.about-cta {
+    background-color: #1a4d2e;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.about-cta:hover {
+    background-color: #2d6a47;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 77, 46, 0.3);
+}
+
+/* About footer info section */
+.about-footer-info {
+    background-color: #ffffff;
+    border-left: 4px solid #d4a574;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.about-info-title {
+    font-size: 1.3rem;
+    color: #1a4d2e;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.about-info-text {
+    color: #666666;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* About contact section */
+.about-contact {
+    text-align: center;
+    background-color: #ffffff;
+    border: 2px solid #d4a574;
+    color: #333333;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(26, 77, 46, 0.1);
+}
+
+.about-contact-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1a4d2e;
+}
+
+.about-contact-text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: #666666;
+    line-height: 1.8;
+}
+
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    background-color: #1a4d2e;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    background-color: #d4a574;
+    color: #1a4d2e;
+}
+
+/* Responsive about section */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 2rem 1rem;
+    }
+
+    .about-title {
+        font-size: 1.75rem;
+    }
+
+    .about-card {
+        padding: 1.5rem;
+    }
+
+    .contact-links {
+        flex-direction: column;
+    }
+
+    .contact-link {
+        width: 100%;
+    }
+}
+
+/* ============================================ */
+/* 13. RESPONSIVE DESIGN - MOBILE */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .budget-card {
+        padding: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================ */
+/* 14. UTILITY CLASSES */
+/* ============================================ */
+
+/* Hide element accessibility-friendly way */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ============================================ */
+/* 15. MODAL STYLES */
+/* ============================================ */
+
+/* Modal container - hidden by default */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Show modal when active */
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s ease;
+}
+
+/* Modal header */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    border-bottom: 2px solid #f5f5f5;
+    background-color: #1a4d2e;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Modal close button */
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ffffff;
+    transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.2);
+}
+
+/* Modal body */
+.modal-body {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* Shopping list details */
+.shopping-list-details {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.list-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f5f5f5;
+}
+
+.list-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.list-detail-label {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.list-detail-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1a4d2e;
+}
+
+/* Shopping items table */
+.shopping-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.shopping-list-table thead {
+    background-color: #f5f5f5;
+}
+
+.shopping-list-table th {
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.shopping-list-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.shopping-list-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Summary section */
+.list-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.summary-item {
+    text-align: center;
+}
+
+.summary-label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.summary-value {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1a4d2e;
+}
+
+.summary-value.safe {
+    color: #28a745;
+}
+
+.summary-value.exceeded {
+    color: #dc3545;
+}
+
+/* Modal footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 2rem;
+    border-top: 2px solid #f5f5f5;
+    background-color: #f9f9f9;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #1a4d2e;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0d2b1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 77, 46, 0.3);
+}
+
+.btn-secondary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #d0d0d0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile responsive modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1rem;
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+    }
+
+    .list-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .shopping-list-table {
+        font-size: 0.9rem;
+    }
+
+    .shopping-list-table th,
+    .shopping-list-table td {
+        padding: 0.5rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}

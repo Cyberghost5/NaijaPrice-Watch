@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaijaPrice Watch - Track Food Inflation Across Nigeria</title>
+    <!-- Link to our custom stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- NAVIGATION BAR SECTION -->
+    <!-- ============================================ -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Branding: Logo and app name -->
+            <div class="navbar-logo">
+                <span class="logo-icon">🛒</span>
+                <span class="logo-text">NaijaPrice Watch</span>
+            </div>
+            
+            <!-- Navigation menu items -->
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="#budget" class="nav-link">Budget Planner</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Track Food Inflation Across Nigerian Markets</h1>
+            <p class="hero-subtitle">
+                Empower yourself with real-time food price data from your local markets. 
+                Make smarter shopping decisions and manage your budget effectively.
+            </p>
+            <button class="cta-button" onclick="document.getElementById('dashboard').scrollIntoView({behavior: 'smooth'})">
+                View Current Prices
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- MAIN CONTAINER FOR DASHBOARD AND SIDEBAR -->
+    <!-- ============================================ -->
+    <div class="main-container">
+        
+        <!-- ============================================ -->
+        <!-- PRICING DASHBOARD SECTION -->
+        <!-- ============================================ -->
+        <section id="dashboard" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">📊 Current Market Prices</h2>
+                <p class="section-subtitle">Food prices tracked across Nigerian markets</p>
+            </div>
+            
+            <!-- Price table wrapper with responsive container -->
+            <div class="table-wrapper">
+                <table class="price-table" id="priceTable">
+                    <!-- Table Header -->
+                    <thead>
+                        <tr class="table-header-row">
+                            <th class="table-header">Item Name</th>
+                            <th class="table-header">Price (₦)</th>
+                            <th class="table-header">Market Location</th>
+                            <th class="table-header">Last Updated</th>
+                        </tr>
+                    </thead>
+                    <!-- Table Body: Will be populated dynamically by JavaScript -->
+                    <tbody id="tableBody">
+                        <!-- Market data rows will be inserted here by app.js -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- BUDGET PLANNER SIDEBAR SECTION -->
+        <!-- ============================================ -->
+        <section id="budget" class="budget-section">
+            <div class="budget-card">
+                <h2 class="budget-title">💰 Smart Budget Planner</h2>
+                <p class="budget-subtitle">Plan your shopping and stay within your budget</p>
+                
+                <!-- Budget input form -->
+                <form id="budgetForm" class="budget-form">
+                    
+                    <!-- Budget input field -->
+                    <div class="form-group">
+                        <label for="maxBudget" class="form-label">Maximum Budget (₦)</label>
+                        <input 
+                            type="number" 
+                            id="maxBudget" 
+                            class="form-input" 
+                            placeholder="Enter your budget (e.g., 5000)"
+                            min="0"
+                            step="100"
+                        >
+                    </div>
+
+                    <!-- Items selection section -->
+                    <div class="form-group">
+                        <label class="form-label">Select Items & Quantity</label>
+                        <p class="form-helper">Adjust quantities and see real-time total</p>
+                        
+                        <!-- Item selection container -->
+                        <div class="items-grid" id="itemsContainer">
+                            <!-- Checkbox items will be dynamically inserted here by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Total cost display -->
+                    <div class="total-display">
+                        <span class="total-label">Total Cost:</span>
+                        <span class="total-amount" id="totalCost">₦0</span>
+                    </div>
+
+                    <!-- Budget status message -->
+                    <div class="budget-status" id="budgetStatus">
+                        <p class="status-message">Enter budget and select items to get started</p>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="submit-button">
+                        Generate Shopping List
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- ABOUT SECTION -->
+    <!-- ============================================ -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <!-- About header -->
+            <div class="about-header">
+                <h2 class="about-title">About NaijaPrice Watch</h2>
+                <p class="about-lead">Empowering Nigerian families with transparent, real-time food market data</p>
+            </div>
+
+            <!-- About content grid -->
+            <div class="about-grid">
+                <!-- Mission section -->
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3 class="about-card-title">Our Mission</h3>
+                    <p class="about-card-text">
+                        We believe that transparent food price information is a fundamental right. 
+                        NaijaPrice Watch helps Nigerian families make informed purchasing decisions by 
+                        providing real-time market data from major food markets across the country.
+                    </p>
+                </div>
+
+                <!-- Vision section -->
+                <div class="about-card">
+                    <div class="about-icon">🌟</div>
+                    <h3 class="about-card-title">Our Vision</h3>
+                    <p class="about-card-text">
+                        To create a Nigeria where food inflation is transparent, budgeting is accessible 
+                        to all, and every household can afford nutritious meals without financial stress.
+                    </p>
+                </div>
+
+                <!-- Why it matters section -->
+                <div class="about-card">
+                    <div class="about-icon">💡</div>
+                    <h3 class="about-card-title">Why It Matters</h3>
+                    <p class="about-card-text">
+                        Food prices fluctuate constantly across Nigerian markets. Without reliable data, 
+                        families overspend and miss opportunities to save. Our platform bridges this gap 
+                        with accurate, regularly updated information.
+                    </p>
+                </div>
+
+                <!-- How it works section -->
+                <div class="about-card">
+                    <div class="about-icon">⚙️</div>
+                    <h3 class="about-card-title">How It Works</h3>
+                    <p class="about-card-text">
+                        Our team monitors prices at markets in Lagos, Ibadan, and beyond. We collect data 
+                        daily and feed it into our dashboard. You can then use our smart budget planner to 
+                        compare prices and plan your shopping wisely.
+                    </p>
+                </div>
+
+                <!-- Key features section -->
+                <div class="about-card">
+                    <div class="about-icon">⭐</div>
+                    <h3 class="about-card-title">Key Features</h3>
+                    <ul class="about-list">
+                        <li>Real-time price tracking</li>
+                        <li>Smart budget planning</li>
+                        <li>Market-specific data</li>
+                        <li>Easy-to-use interface</li>
+                        <li>No signup required</li>
+                    </ul>
+                </div>
+
+                <!-- Get started section -->
+                <div class="about-card">
+                    <div class="about-icon">🚀</div>
+                    <h3 class="about-card-title">Get Started Today</h3>
+                    <p class="about-card-text">
+                        Scroll up to view current market prices and try our smart budget planner. 
+                        Set your budget, select items, and see instantly if you can afford your shopping list.
+                    </p>
+                    <button class="about-cta" onclick="document.getElementById('dashboard').scrollIntoView({behavior: 'smooth'})">
+                        View Dashboard
+                    </button>
+                </div>
+            </div>
+
+            <!-- Additional info section -->
+            <div class="about-footer-info">
+                <h3 class="about-info-title">Data & Transparency</h3>
+                <p class="about-info-text">
+                    NaijaPrice Watch is committed to transparency. Our data comes from verified market sources 
+                    and is updated regularly. Prices may vary by vendor, quantity, and quality. We encourage users 
+                    to compare prices across vendors and negotiate for better deals. Our goal is to empower you with 
+                    information, not to replace personal research.
+                </p>
+            </div>
+
+            <!-- Contact section -->
+            <div class="about-contact">
+                <h3 class="about-contact-title">Have Questions or Feedback?</h3>
+                <p class="about-contact-text">
+                    We'd love to hear from you! Help us improve by sharing your experience, suggesting new markets 
+                    to track, or reporting inaccurate data.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:info@naijapricewatch.ng" class="contact-link">📧 Email Us</a>
+                    <a href="#" class="contact-link">📱 Send Feedback</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER SECTION -->
+    <!-- ============================================ -->
+    <footer class="footer">
+        <p>&copy; 2026 NaijaPrice Watch. Track prices. Control spending. Live smarter.</p>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- SHOPPING LIST MODAL -->
+    <!-- ============================================ -->
+    <div id="shoppingListModal" class="modal">
+        <div class="modal-content">
+            <!-- Modal header with close button -->
+            <div class="modal-header">
+                <h2 class="modal-title">📋 Your Shopping List</h2>
+                <button type="button" class="modal-close" onclick="closeShoppingListModal()">&times;</button>
+            </div>
+
+            <!-- Modal body with shopping list details -->
+            <div class="modal-body" id="shoppingListContent">
+                <!-- Shopping list details will be inserted here -->
+            </div>
+
+            <!-- Modal footer with action buttons -->
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeShoppingListModal()">
+                    Close
+                </button>
+                <button type="button" class="btn-primary" onclick="downloadAsPDF()">
+                    📥 Download as PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to jsPDF library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <!-- Link to our JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
