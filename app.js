@@ -616,9 +616,8 @@ function downloadAsPDF() {
                     margin-top: 5px;
                 }
                 .list-metadata {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 20px;
+                    display: flex;
+                    justify-content: space-between;
                     margin-bottom: 30px;
                     padding: 15px;
                     background-color: #f5f5f5;
@@ -627,6 +626,7 @@ function downloadAsPDF() {
                 .metadata-item {
                     display: flex;
                     flex-direction: column;
+                    width: 48%;
                 }
                 .metadata-label {
                     font-size: 11px;
@@ -674,9 +674,8 @@ function downloadAsPDF() {
                     background-color: #f9f9f9;
                 }
                 .summary-section {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    gap: 20px;
+                    display: flex;
+                    justify-content: space-between;
                     padding: 20px;
                     background-color: #f5f5f5;
                     border-radius: 6px;
@@ -684,6 +683,7 @@ function downloadAsPDF() {
                 }
                 .summary-item {
                     text-align: center;
+                    width: 30%;
                 }
                 .summary-label {
                     font-size: 11px;
@@ -781,6 +781,14 @@ function downloadAsPDF() {
     // Create a temporary element to hold the HTML
     const tempElement = document.createElement('div');
     tempElement.innerHTML = pdfHTML;
+    
+    // Position it off-screen and add it to the body so html2canvas can render it
+    tempElement.style.position = 'absolute';
+    tempElement.style.left = '-9999px';
+    tempElement.style.top = '-9999px';
+    tempElement.style.width = '800px'; // Set width to ensure consistent layout rendering
+    document.body.appendChild(tempElement);
+    
     const pdfContent = tempElement.querySelector('.pdf-container');
     
     // PDF options
@@ -788,12 +796,19 @@ function downloadAsPDF() {
         margin: 10,
         filename: `NaijaPrice_ShoppingList_${today}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
         jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
     };
     
-    // Generate and download PDF
-    html2pdf().set(opt).from(pdfContent).save();
+    // Generate and download PDF, then clean up the DOM element
+    html2pdf().set(opt).from(pdfContent).save()
+        .then(() => {
+            tempElement.remove();
+        })
+        .catch((err) => {
+            console.error('PDF Generation failed:', err);
+            tempElement.remove();
+        });
 }
 
 /* ============================================ */
